@@ -48,6 +48,8 @@ public class CuentaCorriente extends Cuenta {
 
     public void depositarCheque(Cheque cheque){
 
+        saldo+= cheque.getMonto();
+
 
     }
 

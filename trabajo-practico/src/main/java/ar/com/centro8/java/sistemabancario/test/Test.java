@@ -3,6 +3,7 @@ package ar.com.centro8.java.sistemabancario.test;
 import ar.com.centro8.java.sistemabancario.herencia.clientes.ClienteEmpresa;
 import ar.com.centro8.java.sistemabancario.herencia.clientes.ClienteIndividual;
 import ar.com.centro8.java.sistemabancario.herencia.cuenta.CajaDeAhorro;
+import ar.com.centro8.java.sistemabancario.herencia.cuenta.Cheque;
 import ar.com.centro8.java.sistemabancario.herencia.cuenta.CuentaCorriente;
 
 public class Test {
@@ -25,7 +26,7 @@ public class Test {
         ClienteEmpresa cliente2=new ClienteEmpresa(2, "Pikachu", "222222");
         cliente2.getCliente();
         System.out.println(cliente2);
-        System.out.println("El nro de cliente es: "+cliente2.getNombre());
+        System.out.println("El nro de cliente es: "+cliente2.getNombreFantasia());
         System.out.println("El cuit es: "+ cliente2.getCuit());
         
         System.out.println("****Test Caja de ahorro***");
@@ -70,7 +71,8 @@ public class Test {
         System.out.println(cuenta2.getSaldo());
         cuenta2.extraer(3000);// la cuenta queda en 0
         cuenta2.extraer(3000);// no deja extraer porque ya el saldo es 0
-
+        cuenta2.depositarCheque(new Cheque(1, 2000));
+        System.out.println(cuenta2.getSaldo());
 
     }
 }

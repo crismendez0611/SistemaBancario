@@ -12,14 +12,14 @@ public class ClienteEmpresa extends Cliente {
 
     //Atributos
     private String cuit;
-    private String nombre;
+    private String nombreFantasia;
     
  
 
-    public ClienteEmpresa(int nroCliente,String nombre, String cuit) {
+    public ClienteEmpresa(int nroCliente,String nombreFantasia, String cuit) {
         super(nroCliente);
         this.cuit = cuit;
-        this.nombre = nombre;
+        this.nombreFantasia = nombreFantasia;
     }
 
 
