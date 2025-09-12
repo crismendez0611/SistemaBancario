@@ -12,19 +12,10 @@ public class CuentaConvertibilidad extends CuentaCorriente {
 
     private double saldoUsd;
 
-    /**
-     * Cuenta para Pesos Argentinos a Dolares
-     * 
-     * @param nroCuenta
-     * @param cliente
-     * @param montoAutorizado
-     * @param moneda
-     * @param saldo
-     * @param saldoUsd
-     */
-    public CuentaConvertibilidad(int nroCuenta, Cliente cliente, double montoAutorizado, String moneda, double saldo,
+
+    public CuentaConvertibilidad(int nroCuenta, Cliente cliente, String moneda, double saldo, double montoAutorizado,
             double saldoUsd) {
-        super(nroCuenta, cliente, montoAutorizado, moneda, saldo);
+        super(nroCuenta, cliente, moneda, saldo, montoAutorizado);
         this.saldoUsd = saldoUsd;
     }
 
@@ -65,6 +56,10 @@ public class CuentaConvertibilidad extends CuentaCorriente {
     public void pasarADolares(double tasa) {
         setSaldoUsd(getSaldo() / tasa);
 
+    }
+     @Override
+    public String toString() {
+        return "Cuenta Coventibilidad  Nro de cuenta:"+getNroCuenta()+ ". Del cliente: "+getCliente()+". \n %Monto autorizado "+getMontoAutorizado() + "\n, el saldo en $:"+ getSaldo()+ ", Saldo en Dolares: "+ getSaldoUsd();
     }
 
 }

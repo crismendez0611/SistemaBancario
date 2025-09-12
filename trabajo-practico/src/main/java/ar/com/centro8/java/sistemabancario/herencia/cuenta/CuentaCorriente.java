@@ -10,45 +10,10 @@ import lombok.ToString;
 @ToString(callSuper = true)
 public class CuentaCorriente extends Cuenta {
     private double montoAutorizado;
-    private String moneda;
-    private double saldo;
 
-    public CuentaCorriente(int nroCuenta, Cliente cliente, double montoAutorizado, String moneda, double saldo) {
-        super(nroCuenta, cliente);
+    public CuentaCorriente(int nroCuenta, Cliente cliente, String moneda, double saldo, double montoAutorizado) {
+        super(nroCuenta, cliente, moneda, saldo);
         this.montoAutorizado = montoAutorizado;
-        this.moneda = moneda;
-        this.saldo = saldo;
-    }
-
-    /**
-     * Para Cuentas en Pesos argentinos
-     * 
-     * @param nroCuenta
-     * @param cliente
-     * @param montoAutorizado
-     * @param saldo
-     */
-    public CuentaCorriente(int nroCuenta, Cliente cliente, double montoAutorizado, double saldo) {
-        super(nroCuenta, cliente);
-        this.montoAutorizado = montoAutorizado;
-        this.moneda = "Pesos Argentinos";
-        this.saldo = saldo;
-    }
-
-    /**
-     * Para cuentas en otra monedas
-     * 
-     * @param nroCuenta
-     * @param cliente
-     * @param moneda
-     * @param montoAutorizado
-     * @param saldo
-     */
-    public CuentaCorriente(int nroCuenta, Cliente cliente, String moneda, double montoAutorizado, double saldo) {
-        super(nroCuenta, cliente);
-        this.montoAutorizado = montoAutorizado;
-        this.moneda = moneda;
-        this.saldo = saldo;
     }
 
     @Override
@@ -58,15 +23,15 @@ public class CuentaCorriente extends Cuenta {
 
     @Override
     public void depositar(double monto) {
-        saldo += monto;
+        setSaldo(getSaldo() + monto);
     }
 
     @Override
     public void extraer(double monto) {
-        if (monto > montoAutorizado | monto > saldo | saldo <= 0) {
+        if (monto > montoAutorizado | monto > getSaldo() | getSaldo() <= 0) {
             System.out.println("No se puede realizar la operacion");
         } else {
-            saldo -= monto;
+            setSaldo(getSaldo() - monto);
         }
     }
 
@@ -77,8 +42,12 @@ public class CuentaCorriente extends Cuenta {
      */
     public void depositarCheque(Cheque cheque) {
 
-        saldo += cheque.getMonto();
+        setSaldo(getSaldo() + cheque.getMonto());
 
+    }
+     @Override
+    public String toString() {
+        return "Cuenta corriente  en: "+ getMoneda()+". Nro de cuenta:"+getNroCuenta()+ ". Del cliente: "+getCliente()+". \n % monto Autorizado "+montoAutorizado+ ", el saldo es  "+ getSaldo();
     }
 
 }

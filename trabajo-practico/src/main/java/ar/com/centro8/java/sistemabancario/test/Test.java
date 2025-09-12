@@ -25,7 +25,7 @@ public class Test {
         System.out.println("El cuit es: " + cliente2.getCuit());
         ClienteEmpresa cliente3 = new ClienteEmpresa(3, "Agumon", "1");
         System.out.println("****Test Caja de ahorro***");
-        CajaDeAhorro cuenta1 = new CajaDeAhorro(1, cliente1, "pesos", 0, 40);
+        CajaDeAhorro cuenta1 = new CajaDeAhorro(1, cliente1, "Pesos argentinos", 0,8);
         cuenta1.tipoCuenta();
         System.out.println(cuenta1.getCliente());
         System.out.println("*** Test depositar***");
@@ -39,7 +39,7 @@ public class Test {
         cuenta1.cobrarInteres(cuenta1.getSaldo(), cuenta1.getInteres());
         System.out.println(cuenta1.getSaldo());
         System.out.println("*** Cuenta Corriente ***");
-        CuentaCorriente cuenta2 = new CuentaCorriente(2, cliente2, 6000, 0);
+        CuentaCorriente cuenta2 = new CuentaCorriente(2, cliente2, "Pesos Argentinos", 0, 6000);
         cuenta2.tipoCuenta();
         // Depositar
         cuenta2.depositar(9000);
@@ -52,7 +52,7 @@ public class Test {
         cuenta2.extraer(1000);// no deja extraer porque ya el saldo es 0
         System.out.println(cuenta2.getSaldo());
         System.out.println("*** Cuenta convertivilidad ***");
-        CuentaConvertibilidad cuenta3 = new CuentaConvertibilidad(6, cliente3, 6000, null, 0, 0);
+        CuentaConvertibilidad cuenta3 = new CuentaConvertibilidad(3, cliente3, "Pesos Argentinos", 0, 6000, 0);
         System.out.println(cuenta3);
         // Depositar pesos
         cuenta3.depositar(6000);
@@ -72,5 +72,8 @@ public class Test {
         Cheque cheque2 = new Cheque(2, "Banco Galicia", "11/09/2025", 1000);
         cuenta3.depositarCheque(cheque2);
         System.out.println("el saldo de la cuenta 3 en USD:" + cuenta3.getSaldoUsd());
+        System.out.println(cuenta1);
+        System.out.println(cuenta2);
+        System.out.println(cuenta3);
     }
 }

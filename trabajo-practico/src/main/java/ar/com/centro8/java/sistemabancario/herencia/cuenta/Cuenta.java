@@ -11,6 +11,8 @@ public abstract class Cuenta {
 
     private final int nroCuenta;
     private Cliente cliente;
+    private String moneda;
+    private double saldo;
 
     // Metodos
     /** Metodo para decir el tipo de cuenta */
@@ -28,5 +30,7 @@ public abstract class Cuenta {
      * 
      */
     public abstract void extraer(double monto);
+
+    
 
 }

@@ -9,14 +9,14 @@ import lombok.ToString;
 @Getter
 @ToString(callSuper = true)
 public class CajaDeAhorro extends Cuenta {
-    private String moneda;
-    private double saldo;
+   
     private double interes;
+   
+
+ 
 
     public CajaDeAhorro(int nroCuenta, Cliente cliente, String moneda, double saldo, double interes) {
-        super(nroCuenta, cliente);
-        this.moneda = moneda;
-        this.saldo = saldo;
+        super(nroCuenta, cliente, moneda, saldo);
         this.interes = interes;
     }
 
@@ -27,21 +27,30 @@ public class CajaDeAhorro extends Cuenta {
 
     @Override
     public void depositar(double monto) {
-        saldo += monto;
+        setSaldo(getSaldo()+monto);
     }
 
     @Override
     public void extraer(double monto) {
-        if (saldo <= 0 | saldo < monto) {
+        if (getSaldo() <= 0 | getSaldo() < monto) {
             System.out.println("No hay saldo suficiente");
         } else {
-            saldo -= monto;
+            setSaldo(monto+getSaldo());
         }
     }
 
     public void cobrarInteres(double saldo, double interes) {
         double ganado = (saldo * (interes / 100) / 365);
-        this.saldo = saldo + (Math.round(ganado * 100) / 100);
+        setSaldo(getSaldo()+(Math.round(ganado * 100) / 100) );
     }
+
+    @Override
+    public String toString() {
+        return "CajaDeAhorro en: "+ getMoneda()+". Nro de cuenta:"+getNroCuenta()+ ". Del cliente: "+getCliente()+". \n % de interres para cobrar "+interes + ", el saldo es  "+ getSaldo();
+    }
+
+  
+
+    
 
 }
