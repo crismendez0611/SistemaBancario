@@ -31,6 +31,4 @@ public abstract class Cuenta {
      */
     public abstract void extraer(double monto);
 
-    
-
 }

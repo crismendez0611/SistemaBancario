@@ -33,9 +33,10 @@ public class Test {
         System.out.println(cuenta1.getSaldo());
         System.out.println("***Test de Extraer***");
         // cuenta1.extraer(7000); No hay saldo
-        cuenta1.extraer(900);// 0
+        cuenta1.extraer(6000);// 0
         System.out.println(cuenta1.getSaldo());
         System.out.println("***Cobrar Interes***");
+        cuenta1.depositar(5100);
         cuenta1.cobrarInteres(cuenta1.getSaldo(), cuenta1.getInteres());
         System.out.println(cuenta1.getSaldo());
         System.out.println("*** Cuenta Corriente ***");
@@ -63,7 +64,10 @@ public class Test {
         System.out.println("El saldo de la cuenta 2:" + cuenta2.getSaldo());
         // Depositar cheque en pesos
         System.out.println(cuenta3.getSaldo());
-        // depositar cheque en dolares
+        //Extraer Dolares
+        cuenta3.extrerDolares(60);
+        System.out.println(cuenta3.getSaldoUsd());
+        // depositar cheque
         Cheque cheque1 = new Cheque(1, "BBVA", "11/09/2025", 230000);
         cuenta2.depositarCheque(cheque1);
         Cheque cheque3=new Cheque(3, "Creedicoop", "5/5/23", 600);
@@ -75,5 +79,6 @@ public class Test {
         System.out.println(cuenta1);
         System.out.println(cuenta2);
         System.out.println(cuenta3);
+        
     }
 }

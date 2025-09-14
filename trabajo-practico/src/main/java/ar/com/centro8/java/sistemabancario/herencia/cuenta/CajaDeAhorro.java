@@ -12,9 +12,6 @@ public class CajaDeAhorro extends Cuenta {
    
     private double interes;
    
-
- 
-
     public CajaDeAhorro(int nroCuenta, Cliente cliente, String moneda, double saldo, double interes) {
         super(nroCuenta, cliente, moneda, saldo);
         this.interes = interes;
@@ -48,9 +45,5 @@ public class CajaDeAhorro extends Cuenta {
     public String toString() {
         return "CajaDeAhorro en: "+ getMoneda()+". Nro de cuenta:"+getNroCuenta()+ ". Del cliente: "+getCliente()+". \n % de interres para cobrar "+interes + ", el saldo es  "+ getSaldo();
     }
-
   
-
-    
-
 }
