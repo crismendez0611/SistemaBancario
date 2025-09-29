@@ -11,7 +11,7 @@ public class Cheque {
     private String bancoEmisor;
     private String fechaCobro;
     private double monto;
-    private String moneda;
+    
  
 /**
  * Cheque en $
@@ -25,7 +25,6 @@ public class Cheque {
         this.bancoEmisor = bancoEmisor;
         this.fechaCobro = fechaCobro;
         this.monto = monto;
-        this.moneda = "Pesos Argentinos";
     }
 
 }

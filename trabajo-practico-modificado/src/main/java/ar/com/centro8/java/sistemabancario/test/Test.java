@@ -69,7 +69,7 @@ public class Test {
         Cheque cheque1 = new Cheque(1, "BBVA", "11/09/2025", 230000);
         cuenta2.depositarCheque(cheque1);
         Cheque cheque3 = new Cheque(3, "Creedicoop", "5/5/23", 600);
-        System.out.println(cheque3.getMoneda());
+        System.out.println(cheque3.getMonto());
         System.out.println("el saldo de la cuenta 2 es $:" + cuenta2.getSaldo());
         Cheque cheque2 = new Cheque(2, "Banco Galicia", "11/09/2025", 1000);
         cuenta3.depositarCheque(cheque2);
@@ -84,9 +84,8 @@ public class Test {
         cuenta3.pasarADolares(1000, 1332);
         System.out.println("Saldo en $ cuenta 3: "+cuenta3.getSaldo());
         System.out.println("Saldo en Dolares cuenta 3: " +cuenta3.getSaldoUsd());
-        cuenta3.pasarAPesos(1000, 1332);
+        cuenta3.pasarAPesos(600, 1332);
         System.out.println("Saldo en $ cuenta 3: "+cuenta3.getSaldo());
         System.out.println("Saldo en Dolares cuenta 3: " +cuenta3.getSaldoUsd());
-
     }
 }
