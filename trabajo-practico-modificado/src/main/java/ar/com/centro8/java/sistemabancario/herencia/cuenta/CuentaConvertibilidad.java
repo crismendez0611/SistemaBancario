@@ -13,7 +13,7 @@ public class CuentaConvertibilidad extends CuentaCorriente {
 
     private double saldoUsd;
 
-    public CuentaConvertibilidad(int nroCuenta, Cliente cliente, double saldo, double montoAutorizado,
+    public CuentaConvertibilidad(int nroCuenta, ClienteEmpresa cliente, double saldo, double montoAutorizado,
             double saldoUsd) {
         super(nroCuenta, cliente, saldo, montoAutorizado);
         this.saldoUsd = saldoUsd;
@@ -46,7 +46,7 @@ public class CuentaConvertibilidad extends CuentaCorriente {
         if (saldoUsd == 0 || saldoUsd < monto) {
             System.out.println("No hay dolares suficiente");
         } else {
-            setSaldo(getSaldo()+(monto * tasa));
+            setSaldo(getSaldo()+( Math.round(monto * tasa*100.0) / 100.0));
             saldoUsd-=monto;
 
         }
@@ -61,7 +61,7 @@ public class CuentaConvertibilidad extends CuentaCorriente {
         if (getSaldo() == 0 || getSaldo() < monto) {
             System.out.println("No hay Pesos suficiente");
         } else {
-            saldoUsd +=(monto / tasa);
+            saldoUsd +=( Math.round(monto/tasa * 100.0) / 100);
             setSaldo(getSaldo()-monto);
         }
     }

@@ -81,11 +81,14 @@ public class Test {
         //System.out.println("El saldo de la cuenta 3 en dolares es : " + cuenta3.getSaldoUsd());
         System.out.println("Saldo en $ cuenta 3: "+cuenta3.getSaldo());
         System.out.println("Saldo en Dolares cuenta 3: " +cuenta3.getSaldoUsd());
-        cuenta3.pasarADolares(1000, 1332);
+        cuenta3.pasarADolares(60, 1332);
         System.out.println("Saldo en $ cuenta 3: "+cuenta3.getSaldo());
         System.out.println("Saldo en Dolares cuenta 3: " +cuenta3.getSaldoUsd());
-        cuenta3.pasarAPesos(600, 1332);
+        cuenta3.pasarAPesos(60, 1332);
         System.out.println("Saldo en $ cuenta 3: "+cuenta3.getSaldo());
         System.out.println("Saldo en Dolares cuenta 3: " +cuenta3.getSaldoUsd());
+        CuentaConvertibilidad cuenta4 = new CuentaConvertibilidad(4, cliente2, 0, 5000, 0);
+        cuenta4.setCliente(cliente1);
+        
     }
 }
