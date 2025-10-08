@@ -10,15 +10,12 @@ import lombok.ToString;
 @Setter
 @ToString(callSuper = true)
 public class CuentaConvertibilidad extends CuentaCorriente {
-
     private double saldoUsd;
-
     public CuentaConvertibilidad(int nroCuenta, ClienteEmpresa cliente, double saldo, double montoAutorizado,
             double saldoUsd) {
         super(nroCuenta, cliente, saldo, montoAutorizado);
         this.saldoUsd = saldoUsd;
     }
-
     /**
      * Depositar Dolares
      * 
@@ -27,7 +24,6 @@ public class CuentaConvertibilidad extends CuentaCorriente {
     public void depositarDolares(double monto) {
         saldoUsd += monto;
     }
-
     /**
      * Para extraer los Dolares
      * 
@@ -51,7 +47,6 @@ public class CuentaConvertibilidad extends CuentaCorriente {
 
         }
     }
-
     /**
      * Metodo para pasar el saldo de Pesos a USD
      * 
@@ -65,7 +60,10 @@ public class CuentaConvertibilidad extends CuentaCorriente {
             setSaldo(getSaldo()-monto);
         }
     }
-
+    /**
+     * Solo permite asignar un cliente que sea instancia de ClienteEmpresa
+     * @param clienteEmpresa
+     */
     @Override
     public void setCliente(Cliente clienteEmpresa) {
         if (clienteEmpresa instanceof ClienteEmpresa) {

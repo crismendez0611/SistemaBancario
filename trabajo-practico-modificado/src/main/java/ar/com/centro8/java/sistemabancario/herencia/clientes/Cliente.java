@@ -5,7 +5,6 @@ import lombok.Data;
 
 @AllArgsConstructor
 @Data
-
 public abstract class Cliente {
     // Atributos
     private int nroCliente;

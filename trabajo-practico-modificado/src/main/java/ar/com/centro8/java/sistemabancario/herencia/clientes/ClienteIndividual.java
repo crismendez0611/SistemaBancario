@@ -7,7 +7,6 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString(callSuper = true)
-
 public class ClienteIndividual extends Cliente {
     // Atributos
     private String nombre;

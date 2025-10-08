@@ -11,32 +11,23 @@ public abstract class Cuenta {
     private final int nroCuenta;
     private Cliente cliente;
     private double saldo;
-
     // Metodos
     /** Metodo para decir el tipo de cuenta */
     public abstract void tipoCuenta();
-
     /**
-     * 
-     * Depositar monto en la cuenta
-     * monto ->cantidad a depositar
+     * Depositar efectivo en la cuenta
      */
-    public void depositarEfectivo(double monto){
-        if (saldo< monto) {
-            System.out.println("No hay saldo suficiente");
+    public void depositarEfectivo(double monto) {
+        if (saldo < monto) {
+            saldo += monto;
         } else {
-            saldo+=monto;
+            System.out.println("No hay saldo suficiente");
         }
-
-
     };
-
     /**
-     * Extraer monto de la cuenta
-     * 
+     * Extraer efectivo de la cuenta
      */
-    public void extraerEfectivo(double monto){
-        saldo-=monto;
+    public void extraerEfectivo(double monto) {
+        saldo -= monto;
     };
-
 }
