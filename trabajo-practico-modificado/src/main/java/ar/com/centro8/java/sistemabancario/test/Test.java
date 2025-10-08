@@ -18,23 +18,24 @@ public class Test {
         System.out.println("El Nro de cliente  del cliente 1 es:" + cliente1.getNroCliente());
         System.out.println("***Test Cliente Empresa***");
         ClienteEmpresa cliente2 = new ClienteEmpresa(2, "Pikachu", "222222");
-
         System.out.println(cliente2);
         System.out.println("El nro de cliente es: " + cliente2.getNombreFantasia());
         System.out.println("El cuit es: " + cliente2.getCuit());
         ClienteEmpresa cliente3 = new ClienteEmpresa(3, "Agumon", "1");
         System.out.println("****Test Caja de ahorro***");
-        CajaDeAhorro cuenta1 = new CajaDeAhorro(1, cliente1, 0, 8);
+        CajaDeAhorro cuenta1 = new CajaDeAhorro(1, cliente1, 0, 32);
         cuenta1.tipoCuenta();
         System.out.println(cuenta1.getCliente());
         System.out.println("*** Test depositar***");
-        cuenta1.depositarEfectivo(6000);
+        cuenta1.depositarEfectivo(10000);
         System.out.println(cuenta1.getSaldo());
         System.out.println("***Test de Extraer***");
         // cuenta1.extraer(7000); No hay saldo
-        cuenta1.extraerEfectivo(6000);// 0
+        //cuenta1.extraerEfectivo(6000);// 0
         System.out.println(cuenta1.getSaldo());
         System.out.println("***Cobrar Interes***");
+        cuenta1.cobrarInteres();
+        System.out.println("el ssaldo actual es: "+ cuenta1.getSaldo());;
         cuenta1.depositarEfectivo(5100);
         System.out.println(cuenta1.getSaldo());
         System.out.println("*** Cuenta Corriente ***");
@@ -87,8 +88,6 @@ public class Test {
         cuenta3.pasarAPesos(60, 1332);
         System.out.println("Saldo en $ cuenta 3: "+cuenta3.getSaldo());
         System.out.println("Saldo en Dolares cuenta 3: " +cuenta3.getSaldoUsd());
-        CuentaConvertibilidad cuenta4 = new CuentaConvertibilidad(4, cliente2, 0, 5000, 0);
-        cuenta4.setCliente(cliente1);
-        
+        cuenta3.setCliente(cliente1);// no deja asignar un cliente individual
     }
 }

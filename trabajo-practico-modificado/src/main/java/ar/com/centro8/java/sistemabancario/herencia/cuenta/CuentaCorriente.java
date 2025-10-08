@@ -9,18 +9,15 @@ import lombok.ToString;
 @Getter
 @ToString(callSuper = true)
 public class CuentaCorriente extends Cuenta {
-    private double montoAutorizado;
-
+    private double montoAutorizado; 
     public CuentaCorriente(int nroCuenta, Cliente cliente, double saldo, double montoAutorizado) {
         super(nroCuenta, cliente, saldo);
         this.montoAutorizado = montoAutorizado;
     }
-
     @Override
     public void tipoCuenta() {
         System.out.println("Soy una Cuenta Corriente");
     }
-
     @Override
     public void extraerEfectivo(double monto) {
         if (monto > montoAutorizado || monto > getSaldo()) {
@@ -29,16 +26,12 @@ public class CuentaCorriente extends Cuenta {
             setSaldo(getSaldo() - monto);
         }
     }
-
     /**
      * Depositar cheque
      * 
      * @param cheque
      */
     public void depositarCheque(Cheque cheque) {
-
         setSaldo(getSaldo() + cheque.getMonto());
-
     }
-
 }
